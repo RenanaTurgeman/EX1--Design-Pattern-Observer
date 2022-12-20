@@ -1,4 +1,9 @@
 package observer;
 
-public class ConcreteMember {
+public class ConcreteMember implements Member{
+    UndoableStringBuilder undoableStringBuilder;
+    @Override
+    public void update(UndoableStringBuilder usb) {
+
+    }
 }
