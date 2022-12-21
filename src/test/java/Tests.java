@@ -18,4 +18,5 @@ public class Tests {
 
         logger.info(() -> JvmUtilities.jvmInfo());
     }
+
 }

@@ -3,7 +3,7 @@ package observer;
 import java.util.ArrayList;
 
 public class GroupAdmin implements Sender {
-    private ArrayList<Member> cotumers;
+     ArrayList<Member> cotumers;
     UndoableStringBuilder undoableStringBuilder;
     public GroupAdmin(){
         this.cotumers = new ArrayList<>();
@@ -43,5 +43,14 @@ public class GroupAdmin implements Sender {
     @Override
     public void undo() {
         undoableStringBuilder.undo();
+    }
+
+
+    @Override
+    public String toString() {
+        return "GroupAdmin{" +
+                "cotumers=" + cotumers +
+                ", undoableStringBuilder=" + undoableStringBuilder +
+                '}';
     }
 }
