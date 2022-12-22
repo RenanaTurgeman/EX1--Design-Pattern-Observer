@@ -43,10 +43,19 @@ public class GroupAdmin implements Sender {
      */
     @Override
     public void insert(int offset, String obj) {
-        undoableStringBuilder.insert(offset,obj);
-        notifyObservers();
+        try{
+            undoableStringBuilder.insert(offset,obj);
+            notifyObservers();
+        }
+         catch (StringIndexOutOfBoundsException error) {
+            System.err.println("There is a problem, please check the bounds");
+        }
     }
 
+    /**
+     *  Appends the specified string to this character sequence.
+     * @param obj - the string we append to the sequence
+     */
     @Override
     public void append(String obj) {
         undoableStringBuilder.append(obj);
@@ -69,12 +78,19 @@ public class GroupAdmin implements Sender {
         }
     }
 
+    /**
+     *  Erases the last change done to the document, reverting
+     *   it to an older state.
+     */
     @Override
     public void undo() {
         undoableStringBuilder.undo();
         notifyObservers();
     }
 
+    /**
+     * when GroupAdmin (the observer) do action he needs to update is customer (the observers)
+     */
     public void notifyObservers(){
         for(Member costumer : costumers){
             costumer.update(undoableStringBuilder);

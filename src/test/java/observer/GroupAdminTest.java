@@ -13,9 +13,9 @@ class GroupAdminTest {
         GroupAdmin groupAdmin = new GroupAdmin();
         ConcreteMember concreteMember = new ConcreteMember();
         groupAdmin.register(concreteMember);
-        ArrayList<Member> cotumers = new ArrayList<>();
-        cotumers.add(concreteMember);
-        assertEquals(groupAdmin.cotumers,cotumers);
+        ArrayList<Member> costumers = new ArrayList<>();
+        costumers.add(concreteMember);
+        assertEquals(groupAdmin.costumers,costumers);
 
     }
 
@@ -38,6 +38,13 @@ class GroupAdminTest {
         GroupAdmin groupAdmin1 = new GroupAdmin();
         groupAdmin1.append("hhyello");
         assertEquals(groupAdmin.toString(),groupAdmin1.toString());
+
+        GroupAdmin groupAdmin2 = new GroupAdmin();
+        groupAdmin2.append("hello");
+        groupAdmin.insert(-1,"hy");
+        //we expect to get an error message from try & catch
+        assertEquals(groupAdmin2.undoableStringBuilder.toString(),"hello");
+
     }
 
     @Test
@@ -52,9 +59,10 @@ class GroupAdminTest {
         GroupAdmin groupAdmin = new GroupAdmin();
         groupAdmin.append("hello");
         groupAdmin.delete(-1,3);
+        //we expect to get an error message from try & catch
         assertEquals(groupAdmin.undoableStringBuilder.toString(),"hello");
-//        groupAdmin.delete(1,3);
-//        assertEquals(groupAdmin.undoableStringBuilder.toString(),"hlo");
+        groupAdmin.delete(1,3);
+        assertEquals(groupAdmin.undoableStringBuilder.toString(),"hlo");
 
     }
 
