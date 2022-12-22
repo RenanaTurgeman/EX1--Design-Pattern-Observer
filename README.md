@@ -1,5 +1,5 @@
 # Deisgn Patern: Observer 
-# EX1--StringBuilder
+## EX1--StringBuilder
 
 This code implements the deisgn patern observer.
 It is contains the following classes:
