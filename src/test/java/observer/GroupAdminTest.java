@@ -1,5 +1,7 @@
 package observer;
 
+import org.junit.platform.commons.logging.Logger;
+import org.junit.platform.commons.logging.LoggerFactory;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -7,12 +9,13 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GroupAdminTest {
-
+    public static final Logger logger = LoggerFactory.getLogger(GroupAdminTest.class);
     @Test
     void register() {
         GroupAdmin groupAdmin = new GroupAdmin();
         ConcreteMember concreteMember = new ConcreteMember();
         groupAdmin.register(concreteMember);
+        logger.info(()->JvmUtilities.objectTotalSize(groupAdmin));
         ArrayList<Member> costumers = new ArrayList<>();
         costumers.add(concreteMember);
         assertEquals(groupAdmin.costumers,costumers);
@@ -24,6 +27,7 @@ class GroupAdminTest {
         GroupAdmin groupAdmin = new GroupAdmin();
         ConcreteMember concreteMember = new ConcreteMember();
         groupAdmin.unregister(concreteMember);
+        logger.info(()->JvmUtilities.objectTotalSize(groupAdmin));
         ArrayList<Member> cotumers = new ArrayList<>();
         cotumers.add(concreteMember);
         cotumers.remove(concreteMember);
