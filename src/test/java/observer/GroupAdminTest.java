@@ -27,7 +27,7 @@ class GroupAdminTest {
         ArrayList<Member> cotumers = new ArrayList<>();
         cotumers.add(concreteMember);
         cotumers.remove(concreteMember);
-        assertEquals(groupAdmin.cotumers,cotumers);
+        assertEquals(groupAdmin.costumers,cotumers);
     }
 
     @Test
