@@ -1,10 +1,6 @@
 package observer;
-import java.util.Stack;
 import java.util.EmptyStackException;
-
-/*
-Use the class you've implemented in previous assignment
- */
+import java.util.Stack;
 
 /**
  * A class that we could use it to do undo for certain functions from StringBuilder class
@@ -119,5 +115,4 @@ public class UndoableStringBuilder {
     public String toString() {
         return sb.toString();
     }
-
 }
