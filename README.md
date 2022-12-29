@@ -13,7 +13,8 @@ every GroupAdmin have undoablestringbuilder field and ArrayList field that hold 
 In this class we have the method notifyObservers, when member registered to the GroupAdmin, we add the member to the ArrayList, and when change is maid in the undoablestringbuilder, the GroupAdmin notify all the members about this change.
 
 ## 2) ConcreteMember:
-This class implements the interface Member that represent the observers. It contains shallow copy of the undoablestringbuilder of the GroupAdmin.
+This class implements the interface Member that represent the observers. Each ConcreteMember contains shallow copy of the undoablestringbuilder of the GroupAdmin.
+This class holds undoablestringbuilder field. So when ConcreteMember registered to a GroupAdmin, he get update from the GroupAdmin and change his own undoablestringbuilder field.
  
 # TESTS
 ## 1) GroupAdminTest:
